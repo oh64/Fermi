@@ -2205,6 +2205,9 @@ span.instanceStatus {
 	flex-direction: column;
 	flex-shrink: 1;
 	max-height: fit-content;
+	overscroll-behavior: contain;
+	overscroll-behavior-y: contain;
+	-webkit-overflow-scrolling: touch;
 }
 #pasteimage {
 	height: 30%;
@@ -4203,12 +4206,18 @@ fieldset input[type="radio"] {
 	#page {
 		display: block;
 		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100svh;
+		height: 100dvh;
+		overflow: hidden;
 	}
 	#servers,
 	.channelflex,
 	#mainarea {
 		position: absolute;
-		height: 100svh;
+		height: 100%;
 	}
 	.channelflex {
 		left: 64px;
@@ -4218,6 +4227,9 @@ fieldset input[type="radio"] {
 		width: 100svw;
 		background: var(--primary-bg);
 		transition: left 0.3s;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
 	}
 	#sideContainDiv,
 	#sideContainDiv.searchDiv {

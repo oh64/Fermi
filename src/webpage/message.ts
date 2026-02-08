@@ -491,30 +491,10 @@ class Message extends SnowFlake {
 		}
 	}
 	messageevents(obj: HTMLDivElement) {
-		let drag = false;
 		Message.contextmenu.bindContextmenu(
 			obj,
 			this,
 			undefined,
-			(x) => {
-				//console.log(x,y);
-				if (!drag && x < 20) {
-					return;
-				}
-				drag = true;
-				this.channel.moveForDrag(Math.max(x, 0));
-			},
-			(x, y) => {
-				drag = false;
-				console.log(x, y);
-				this.channel.moveForDrag(-1);
-				if (x > 60) {
-					console.log("In here?");
-					const toggle = document.getElementById("maintoggle") as HTMLInputElement;
-					toggle.checked = false;
-					console.log(toggle);
-				}
-			},
 		);
 		this.div = obj;
 		obj.classList.add("messagediv");
